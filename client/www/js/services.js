@@ -10,7 +10,7 @@ angular.module('socket-chat.services', [])
   if(window.location.origin.indexOf('localhost') == -1)
     baseUrl = 'https://socket-chat-server.com:443';
   else
-    baseUrl = 'http://localhost:8080';  
+    baseUrl = 'http://localhost:3000';
 
   socket = io.connect(baseUrl);
 

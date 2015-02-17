@@ -60,6 +60,13 @@ angular.module('starter.controllers',  [])
     $scope.addCard();
   };
 })
+.controller('LoadingCtrl', function($scope, TDCardDelegate) {
+
+  $scope.goToChat = function (){
+    alert(1)
+
+  }
+})
 
 .controller('CardCtrl', function($scope, TDCardDelegate) {
 

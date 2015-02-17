@@ -13,7 +13,8 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
 
   $stateProvider.state('loading', {
     url: '/loading',
-    templateUrl: "templates/loading.html"
+    templateUrl: "templates/loading.html",
+    controller: 'LoadingCtrl'
   })
 
   $stateProvider.state('cards', {

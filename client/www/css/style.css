@@ -21,7 +21,6 @@ src: url("fonts/SAP_CLEAR09-RgCondensed.otf") format("opentype");
 }
 
 body{
-  background:#7bd3da;
   font-family: segoeuil;
 }
 input[type="text"]

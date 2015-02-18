@@ -91,24 +91,22 @@ body{
   margin-top:200px;
 }
 .mybutton{
-  border-color: #b2b2b2;
-  border-radius: 50%;
-  background-color: #f8f8f8;
-  color: #444;
+  border-color: #7bd3da;
+  border-radius: 100%;
+  background-color: #68BCBF;
+  color: #7bd3da;
   position: relative;
   display: inline-block;
   margin: 0;
-  padding: 0 12px;
-  min-width: 52px;
-  min-height: 47px;
-  border-width: 1px;
+  padding: 0;
+  min-width: 60px;
+  min-height: 60px;
+  border-width: 0px;
   border-style: solid;
   vertical-align: top;
   text-align: center;
-  text-overflow: ellipsis;
-  font-size: 16px;
-  line-height: 42px;
- cursor: pointer; 
+  font-size: 26px;
+  cursor: pointer; 
 }  
 
 label.item{
@@ -117,15 +115,15 @@ label.item{
   border-bottom:1px solid #fff;
   color:#fff;
   width:160px;
+  padding-bottom:0;
   margin:auto;
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]
  {
   color:#fff;
+  font-size:24px;
 }
-::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #fff;
-}
+
 .progress {
   margin-top:160px;
 

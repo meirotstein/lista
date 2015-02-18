@@ -60,16 +60,16 @@ angular.module('starter.controllers',  [])
     $scope.addCard();
   };
 })
-.controller('LoadingCtrl', function($scope, $timeout) {
+.controller('LoadingCtrl', function($scope,$location) {
   $scope.circleAnim = 'circleAnim';
   $scope.circleAnim2 = 'circleAnim2';  
-  $scope.myformShow = true;
+  $scope.myformShow = false;
   $scope.progressShow = true;
   $scope.street = 'searching'
   $scope.city = '...'  
   $scope.myClass = '';
   $scope.goToChat = function (){
-    alert(1)
+    $location.path('/chat');
   }
   $scope.simulate = function (val){
     if(val == 1) {

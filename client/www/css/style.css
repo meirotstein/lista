@@ -154,7 +154,9 @@ input[type="text"].inp
   border-bottom:1px solid #fff;
   margin:0;
 }
-
+input.inp::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #fff;
+  text-indent: 0; }
 .progress {
   position: relative;
   top:100px;

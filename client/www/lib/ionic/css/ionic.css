@@ -5414,7 +5414,7 @@ input::-moz-placeholder, textarea::-moz-placeholder {
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #aaaaaa; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #aaaaaa;
   text-indent: 0; }
 
 input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {

@@ -45,7 +45,7 @@
     content: "";
     position: absolute;
     top: -6px;
-    left: 10px;
+    left: 2%;
     border-style: solid;
     border-width: 0 7px 6px;
     border-color: #7BD3DA transparent;
@@ -56,10 +56,11 @@
 
 .bubble-me {
     background: #E77A77;
+    text-align: right;
 }
 
 .bubble-me:after {
-    left: 317px;
+    left: 94%;
     border-color: #E77A77 transparent;
 }
 
@@ -109,6 +110,7 @@
     width: 87%;
     height: 60px;
     float: left;
+    padding: 7px;
 }
 
 .chat-footer .send-icon {

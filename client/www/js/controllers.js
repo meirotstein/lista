@@ -36,7 +36,7 @@ angular.module('starter.controllers',  [])
         $scope.countdown--;
         $scope.arc_intervals = $scope.countdown/5;
         if($scope.countdown == 0) {
-          $interval.cancel(stopTime)
+          $interval.cancel(stopTime);
           $location.path('/cards');
         }
       }
@@ -68,34 +68,55 @@ angular.module('starter.controllers',  [])
   $scope.circleAnim2 = 'circleAnim2';  
   $scope.myformShow = false;
   $scope.progressShow = true;
-  $scope.street = 'searching'
-  $scope.city = '...'  
+  $scope.street = 'searching';
+  $scope.city = '...';
   $scope.myClass = '';
   $scope.myuser = '';
   $scope.goToChat = function (){
-    Chat.setUsername($scope.myuser)
+    Chat.setUsername($scope.myuser);
     $rootScope.currentUser = $scope.myuser;
+    $rootScope.place = $scope.street + ", " + $scope.city;
+    Chat.setPlace($rootScope.place);
     $location.path('/chat');
-  }
+  };
   $scope.userInputChange = function(val) {
     $scope.myuser = val;
-  }
-  $scope.simulate = function (val){
-    if(val == 1) {
-      $scope.street = '15 Hatidar'
-      $scope.city = 'Raanana'  
-      $scope.circleAnim = '';
-      $scope.circleAnim2 = '';
+  };
+$scope.simulate = function (val) {
+    if (val == 1) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function showPosition(position) {
+                var pyrmont = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-    } else if(val == 2) {
-      $scope.myformShow = true;
-      $scope.progressShow = false;
+                var request = {
+                    location: pyrmont,
+                    radius: 100,
+                    rankby: google.maps.places.RankBy.DISTANCE
+                    //types: ['store']
+                };
+                var service = new google.maps.places.PlacesService(document.getElementById('map-canvas'));
+                service.nearbySearch(request, function (results, status) {
+                        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                            $scope.street = results[0].name;
+                            $scope.city = results[0].vicinity;
+                            $scope.$apply();
+                        }
+                    }
+                );
+                }
+            );
+        } else {
+            $scope.street = "Geolocation is not supported by this browser.";
+        }
 
-      $scope.myClass = 'progressShow';
+        $scope.circleAnim = '';
+        $scope.circleAnim2 = '';
+    } else if (val == 2) {
+        $scope.myformShow = true;
+        $scope.progressShow = false;
+        $scope.myClass = 'progressShow';
     }
-
-  }  
-
+  }
 })
 
 .controller('CardCtrl', function($scope, TDCardDelegate) {

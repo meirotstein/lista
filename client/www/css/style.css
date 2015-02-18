@@ -173,12 +173,24 @@ myformShow.ng-hide-remove{
 }
 .triviaMessage p{
   margin-top:140px;
-  margin-bottom:40px;
+  margin-bottom:50px;
   font-size:26px;
   text-align: center;
   color:#ffffff;
 }
+.triviaMessage p.counter{
+  font-size:60px;
+  
+}
 
+.arc{
+  position:relative;
+  top:-155px;
+  stroke-linecap:round;
+  transition:stroke-dashoffset 0.1s linear;
+
+}
+/*
 .timer {
     background: -webkit-linear-gradient(left, skyBlue 50%, #eee 50%);
     border-radius: 100%;
@@ -187,7 +199,6 @@ myformShow.ng-hide-remove{
     width: 150px;
     left:30%;
     -webkit-animation: time 20s steps(20, start) infinite;
-    /* Animation time and number of steps */
 }
 .mask {
     border-radius: 100% 0 0 100% / 50% 0 0 50%;
@@ -198,7 +209,6 @@ myformShow.ng-hide-remove{
     top: 0;
     width: 50%;
     -webkit-animation: mask 20s steps(10, start) infinite;
-    /* Animation time and number of steps (halved) */
     -webkit-transform-origin: 100% 50%;
 }
 @-webkit-keyframes time {
@@ -209,24 +219,21 @@ myformShow.ng-hide-remove{
 @-webkit-keyframes mask {
     0% {
         background: #eee;
-        /* Background colour */
         -webkit-transform: rotate(0deg);
     }
     50% {
         background: #eee;
-        /* Background colour */
         -webkit-transform: rotate(-180deg);
     }
     50.01% {
         background: skyBlue;
-        /* Foreground colour */
         -webkit-transform: rotate(0deg);
     }
     100% {
         background: skyBlue;
-        /* Foreground colour */
         -webkit-transform: rotate(-180deg);
     }
 }
 
 
+*/

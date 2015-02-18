@@ -1,5 +1,5 @@
 angular.module('starter.controllers',  [])
-.controller('CardsCtrl', function($scope, $location, $interval, TDCardDelegate) {
+.controller('CardsCtrl', function($scope, $location, $interval, $location, TDCardDelegate) {
   console.log('CARDS CTRL');
 
   var cardTypes = [
@@ -25,8 +25,8 @@ angular.module('starter.controllers',  [])
     }
     $scope.index++;
   };
-
-  $scope.countdown = 20;
+  $scope.arc_intervals = 1;
+  $scope.countdown = 5;
   $scope.showTimer = function(){
       //$ionicBackdrop.retain();
       $scope.showTimmer = true;
@@ -34,7 +34,11 @@ angular.module('starter.controllers',  [])
 
       function updateTime(){
         $scope.countdown--;
-        console.log('hi')
+        $scope.arc_intervals = $scope.countdown/5;
+        if($scope.countdown == 0) {
+          $interval.cancel(stopTime)
+          $location.path('/cards');
+        }
       }
   };
 

@@ -5,9 +5,20 @@
     <div class="col">
       <p>Trivia quiz will start in</p>
       <p class="counter">{{countdown}}</p>
-      <div class="timer">
+      <progress-arc
+        class="arc"
+        size="200"
+        stroke="red"
+        stroke-width="15"
+        complete="arc_intervals"
+        counter-clockwise="false"
+        background="gray">
+      </progress-arc>
+
+
+      <!--div class="timer">
         <div class="mask"></div>
-      </div>
+      </div-->
 
     </div>
   </div>     

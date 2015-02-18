@@ -1,11 +1,40 @@
+@font-face {
+font-family: SAP_CLEAR09;
+src: url("fonts/SAP_CLEAR09-BoldCondensed.otf") format("opentype");
+font-weight: bold;
+}
+
+@font-face {
+font-family: SAP_CLEAR09_light;
+src: url("fonts/SAP_CLEAR09-LightCondensed.otf") format("opentype");
+font-weight: lighter;
+}
+
+@font-face {
+font-family: SAP_CLEAR09;
+src: url("fonts/SAP_CLEAR09-RgCondensed.otf") format("opentype");
+}
+
+@font-face {
+    font-family: segoeuil;
+    src: url("fonts/segoeuil.ttf");
+}
+
 body{
   background:#7bd3da;
+  font-family: segoeuil;
 }
+input[type="text"]
+ {
+  font-family: segoeuil;  
+}
+
 .loading {
   background:#7bd3da;
   text-align: center;
   margin: auto;
-  padding-top:200px;
+  position: relative;
+  top:200px;
 }
 
 .circle {
@@ -79,10 +108,12 @@ body{
   text-align :center;
   top:-250px;
   color:#fff;
+  font-family: SAP_CLEAR09_light;
+  font-size: 24px;
 }
 .mylogo{
     position: relative;
-    top:-420px;
+    top:-360px;
     margin:auto;
    text-align :center;
 }
@@ -109,23 +140,24 @@ body{
   cursor: pointer; 
 }  
 
-label.item{
+label.login{
   background:transparent;
-  border-color:transparent;
   border-bottom:1px solid #fff;
-  color:#fff;
-  width:160px;
-  padding-bottom:0;
   margin:auto;
+  text-align: right;
 }
-textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]
+input[type="text"].inp 
  {
   color:#fff;
   font-size:24px;
+  background: transparent;
+  border-bottom:1px solid #fff;
+  margin:0;
 }
 
 .progress {
-  margin-top:160px;
+  position: relative;
+  top:100px;
 
 }
 

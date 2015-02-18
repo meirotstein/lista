@@ -4957,7 +4957,8 @@ a.item-content {
     z-index: 1; }
 
 .item-placeholder {
-  opacity: 0.7; }
+  opacity: 0.7;
+  color:#fff; }
 
 /**
  * The hidden right-side buttons that can be exposed under a list item
@@ -5374,7 +5375,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   padding-top: 8px; }
 
 input, textarea {
-  width: 100%; }
+  width: auto; }
 
 textarea {
   padding-left: 0; }
@@ -5397,7 +5398,7 @@ input[type="radio"], input[type="checkbox"] {
   line-height: normal; }
 
 input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"] {
-  width: auto; }
+  }
 
 input[type="file"] {
   line-height: 34px; }
@@ -5412,7 +5413,7 @@ input::-moz-placeholder, textarea::-moz-placeholder {
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #aaaaaa; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #aaaaaa;
+  color: #ffffff;
   text-indent: 0; }
 
 input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {

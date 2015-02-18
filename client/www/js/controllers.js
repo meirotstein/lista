@@ -60,12 +60,33 @@ angular.module('starter.controllers',  [])
     $scope.addCard();
   };
 })
-.controller('LoadingCtrl', function($scope, TDCardDelegate) {
-
+.controller('LoadingCtrl', function($scope, $timeout) {
+  $scope.circleAnim = 'circleAnim';
+  $scope.circleAnim2 = 'circleAnim2';  
+  $scope.myformShow = true;
+  $scope.progressShow = true;
+  $scope.street = 'searching'
+  $scope.city = '...'  
+  $scope.myClass = '';
   $scope.goToChat = function (){
     alert(1)
-
   }
+  $scope.simulate = function (val){
+    if(val == 1) {
+      $scope.street = '15 Hatidar'
+      $scope.city = 'Raanana'  
+      $scope.circleAnim = '';
+      $scope.circleAnim2 = '';
+
+    } else if(val == 2) {
+      $scope.myformShow = true;
+      $scope.progressShow = false;
+
+      $scope.myClass = 'progressShow';
+    }
+
+  }  
+
 })
 
 .controller('CardCtrl', function($scope, TDCardDelegate) {

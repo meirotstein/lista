@@ -1,4 +1,20 @@
- <ion-view title="Home" ng-controller="CardsCtrl">
+ <ion-view title="Home" ng-controller="CardsCtrl" ng-click="showTimer()">
+
+  <div class="triviaMessage" ng-if="showTimmer">
+  <div class="row row-center">
+    <div class="col">
+      <p>Trivia quiz will start in</p>
+      <p class="counter">{{countdown}}</p>
+      <div class="timer">
+        <div class="mask"></div>
+      </div>
+
+    </div>
+  </div>     
+  </div>
+
+  <div class="myMackdrop" ng-if="showTimmer"></div>
+
    <td-cards ng-if="showCards">
       <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index,card)" on-swipe-right="cardSwipedRight($index,card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
         <div class="image" ng-controller="CardCtrl">
@@ -9,5 +25,7 @@
         </div>
       </td-card>
     </td-cards>
+
+
       </ion-content>
     </ion-view>

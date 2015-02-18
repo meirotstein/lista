@@ -130,16 +130,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 /* when hiding the thing */
-.progress.ng-hide-add         { 
+.progress.ng-hide-add{ 
   -webkit-animation:1s eitan ease; 
   animation:1s eitan ease; 
 
 }
-
-.progress.ng-hide-add.ng-hide-add-active{
-}
-/* when showing the thing */
-
 
 /* light speed out */
 @-webkit-keyframes eitan {
@@ -150,3 +145,88 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     -webkit-transform: translate(0, -100px);
   }
 }
+
+myformShow.ng-hide-remove{
+
+
+}
+
+.myMackdrop{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#000000;
+  z-index: 20;
+  opacity:.8;
+}
+.triviaMessage{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  text-align: center;
+  z-index: 1000;
+
+}
+.triviaMessage p{
+  margin-top:140px;
+  margin-bottom:40px;
+  font-size:26px;
+  text-align: center;
+  color:#ffffff;
+}
+
+.timer {
+    background: -webkit-linear-gradient(left, skyBlue 50%, #eee 50%);
+    border-radius: 100%;
+    height: 150;
+    position: relative;
+    width: 150px;
+    left:30%;
+    -webkit-animation: time 20s steps(20, start) infinite;
+    /* Animation time and number of steps */
+}
+.mask {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    height: 100%;
+    left: 0;
+    right:0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    -webkit-animation: mask 20s steps(10, start) infinite;
+    /* Animation time and number of steps (halved) */
+    -webkit-transform-origin: 100% 50%;
+}
+@-webkit-keyframes time {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes mask {
+    0% {
+        background: #eee;
+        /* Background colour */
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        background: #eee;
+        /* Background colour */
+        -webkit-transform: rotate(-180deg);
+    }
+    50.01% {
+        background: skyBlue;
+        /* Foreground colour */
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        background: skyBlue;
+        /* Foreground colour */
+        -webkit-transform: rotate(-180deg);
+    }
+}
+
+

@@ -1,27 +1,13 @@
 angular.module('starter.controllers',  [])
-.controller('CardsCtrl', function($scope, $location, TDCardDelegate) {
+.controller('CardsCtrl', function($scope, $location, $interval, TDCardDelegate) {
   console.log('CARDS CTRL');
-  // var cardTypes = [
-  //   { image: 'max.jpg' },
-  //   { image: 'ben.png' },
-  //   { image: 'perry.jpg' },
-  // ];
-
-  // var cardTypes = [
-  //    {text: 'Do you like dogs?'},
-  //    {text: 'Do you eat bananas?'} ,
-  //    {text: 'Do you play an instrument?'},
-  // ];
 
   var cardTypes = [
      {key:1,text: 'Do you like dogs?'},
      {key:2,text: 'Do you eat bananas?'}
-    //  {key:3,text: 'Do you play an instrument?'},
-    // {key:4,text: 'Are you a developer?'},
-    //  {key:5,text: 'Do you enjoy DKOM?'} ,
-    //  {key:6,text: 'Is this red?'},     
   ];
   $scope.showCards=true;
+  $scope.showTimmer = false;
   $scope.index = 1;
   $scope.cards = Array.prototype.slice.call(cardTypes, 0);
   $scope.maxCards = $scope.cards.length;
@@ -31,12 +17,25 @@ angular.module('starter.controllers',  [])
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
     console.log('DESTROYED Card no.'+$scope.index);
+  
     if($scope.index == $scope.maxCards) {
-      //alert('done')
+  
       $scope.showCards=false;
       $location.path('/cards' );
     }
     $scope.index++;
+  };
+
+  $scope.countdown = 20;
+  $scope.showTimer = function(){
+      //$ionicBackdrop.retain();
+      $scope.showTimmer = true;
+      stopTime = $interval(updateTime, 1000);
+
+      function updateTime(){
+        $scope.countdown--;
+        console.log('hi')
+      }
   };
 
 

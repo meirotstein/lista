@@ -9,18 +9,18 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
 
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/loading')
+  $urlRouterProvider.otherwise('/loading');
 
   $stateProvider.state('loading', {
     url: '/loading',
     templateUrl: "templates/loading.html",
     controller: 'LoadingCtrl'
-  })
+  });
 
   $stateProvider.state('cards', {
     url: '/cards',
     templateUrl: "templates/cards.html"
-  })
+  });
 
   $stateProvider.state('chat', {
     url: '/chat',

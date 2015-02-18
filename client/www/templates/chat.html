@@ -2,12 +2,12 @@
 
       <div class="bar bar-subheader notification"></div>
 
-      <ion-content scroll="true" class="has-header" style="padding: 10px;">
+      <ion-content scroll="true" class="has-header chat-content" style="padding: 10px;">
 
         <ol class="messages">
           <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
-            <div>
-              <span ng-if="message.username != username" class="message-username">{{message.username}}</span>
+            <span ng-if="message.username != usernae" class="message-username">{{message.username}}</span>
+            <div class="bubble">
               <p ng-bind="message.content" ng-class="{'userMsg': message.username == username}"></p>
             </div>
           </li>

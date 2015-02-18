@@ -23,7 +23,7 @@
 <div  class="myform"  ng-show="myformShow">
   <div class="row row-center">
     <div class="col" ng-if="true">
-        <input ng-model="myuser" style="margin:auto;color:#fff;width:200px" class="inp" placeholder="what's your name?" value="" type="text">
+        <input ng-model="myuser" style="margin:auto;color:#fff;width:200px" class="inp" placeholder="what's your name?" value="" type="text" ng-change="userInputChange(myuser)">
        <div style="text-align:center;margin-top:100px">
        <button class="mybutton" ng-click="goToChat()">GO</button>
     </div>  

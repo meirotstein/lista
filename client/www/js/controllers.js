@@ -15,7 +15,7 @@ angular.module('starter.controllers',  [])
 
   var cardTypes = [
      {key:1,text: 'Do you like dogs?'},
-     {key:2,text: 'Do you eat bananas?'} ,
+     {key:2,text: 'Do you eat bananas?'}
     //  {key:3,text: 'Do you play an instrument?'},
     // {key:4,text: 'Are you a developer?'},
     //  {key:5,text: 'Do you enjoy DKOM?'} ,
@@ -26,7 +26,7 @@ angular.module('starter.controllers',  [])
   $scope.cards = Array.prototype.slice.call(cardTypes, 0);
   $scope.maxCards = $scope.cards.length;
 
-    console.log('after slice ', $scope.cards)
+    console.log('after slice ', $scope.cards);
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
@@ -46,7 +46,7 @@ angular.module('starter.controllers',  [])
     var newCard = cardTypes[0];
     $scope.cards.push(angular.extend({}, newCard));
 
-  }
+  };
 
   $scope.cardSwipedLeft = function(index,obj) {
     console.log('LEFT CARD');
@@ -111,7 +111,7 @@ angular.module('starter.controllers',  [])
 
 
   $scope.showUsernamePopup = function() {
-    $scope.data = {}
+    $scope.data = {};
 
     var myPopup = $ionicPopup.show({
       template: '<input type="text" ng-model="data.username" autofocus>',
@@ -129,7 +129,7 @@ angular.module('starter.controllers',  [])
                 return $scope.data.username;
               }
             }
-          },
+          }
       ]
     });
     myPopup.then(function(res) {

@@ -8,19 +8,7 @@ function start(resourcesPath) {
         res.sendFile(resourcesPath + 'index.html');
     });
 
-    app.get('/css', function(req, res){
-        res.sendFile(resourcesPath + req.url);
-    });
-
-    app.get('/img', function(req, res){
-        res.sendFile(resourcesPath + req.url);
-    });
-
-    app.get('/js', function(req, res){
-        res.sendFile(resourcesPath + req.url);
-    });
-
-    app.get('/lib', function(req, res){
+    app.get(/\/(css|img|js|lib|templates)\/.*/, function(req, res){
         res.sendFile(resourcesPath + req.url);
     });
 
@@ -39,6 +27,6 @@ function start(resourcesPath) {
 
 module.exports = {
     start : start
-}
+};
 
 

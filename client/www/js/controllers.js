@@ -179,7 +179,7 @@ angular.module('starter.controllers',  [])
       $ionicScrollDelegate.scrollBottom(true);
     }
     else{
-      alert('Can\'t be empty');
+      console.log('Input is empty, nothing was sent');
     }
   };
 

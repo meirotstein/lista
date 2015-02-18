@@ -93,8 +93,27 @@
 }
 
 .chat-footer {
-    height: 90px !important;
+    height: 100px !important;
     background-color: #E6E6E6 !important;
+}
+
+.chat-footer .center {
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+.chat-footer .send-message-input {
+    width: 87%;
+    height: 60px;
+    float: left;
+}
+
+.chat-footer .send-icon {
+    height: 60px;
+    float: right;
 }
 
 

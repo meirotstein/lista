@@ -8,6 +8,7 @@
 angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat.services','starter.controllers','ngAnimate','angular-progress-arc'])
 
 
+
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/loading');
 

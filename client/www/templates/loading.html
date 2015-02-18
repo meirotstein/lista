@@ -28,7 +28,7 @@
     <div class="col col-center">
      <div ng-if="true" >
       <label class="item item-input" >
-        <input ng-model="username" style="color:#fff;width:160px" class="inp" placeholder="what's your name?" value="" type="text">
+        <input ng-model="myuser" style="color:#fff;width:160px" class="inp" placeholder="what's your name?" value="" type="text" ng-change="userInputChange(myuser)">
       </label>
       <!--label class="item item-input">
         <span class="input-label">Password</span>

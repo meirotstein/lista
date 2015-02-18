@@ -1,25 +1,34 @@
     <ion-view title="Chat">
 
-      <div class="bar bar-subheader notification"></div>
+      <div class="chat-header">
+        <img src="img/chat_logo.png" class="chat-logo">
+        <span class="title">Chat with</span><br>
+        <span class="place">15 Hatidhar St. Raanana</span>
+      </div>
 
-      <ion-content scroll="true" class="has-header chat-content" style="padding: 10px;">
+      <ion-content scroll="true" class="has-header has-footer chat-content" style="padding: 10px;">
 
         <ol class="messages">
           <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
-            <span ng-if="message.username != usernae" class="message-username">{{message.username}}</span>
-            <div class="bubble">
+            <div class="message-title">
+              <div ng-if="$root.currentUser !== message.username">
+                <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getCurrentTime()}}</span></span>
+              </div>
+              <div ng-if="$root.currentUser === message.username">
+                <span class="username-me"><span class="time">{{getCurrentTime()}}</span> {{message.username}} <span class="dot-me">.</span></span>
+              </div>
+            </div>
+            <div class="bubble" ng-class="{'bubble-me' : $root.currentUser === message.username}">
               <p ng-bind="message.content" ng-class="{'userMsg': message.username == username}"></p>
             </div>
           </li>
         </ol>
       </ion-content>
 
-      <ion-footer-bar style="display:inline">
-        <form ng-submit="sendMessage()" class="message-form">
-          <label class="item-input-wrapper">
-            <input ng-model="newMessage" class="input-message" type="text" placeholder="Message">
-          </label>
-        </form>
+      <ion-footer-bar class="bar-positive chat-footer">
+        
       </ion-footer-bar>
+
+
 
     </ion-view>

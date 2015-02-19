@@ -61,15 +61,21 @@ angular.module('starter.controllers',  [])
     $scope.addCard();
   };
 })
-.controller('LoadingCtrl', function($scope, $rootScope , $location, Chat) {
-  $scope.circleAnim = 'circleAnim';
-  $scope.circleAnim2 = 'circleAnim2';  
+.controller('LoadingCtrl', function($scope, $rootScope , $timeout, $location, Chat) {
+  $scope.is_searching = true;
+  $scope.location_found = false;  
   $scope.myformShow = false;
   $scope.progressShow = true;
-  $scope.street = 'searching';
-  $scope.city = '...';
+  $scope.street = ' ';
+  $scope.city = ' ';
   $scope.myClass = '';
-  $scope.myuser = '';
+  $scope.myuser = '';  
+    $timeout(function() {
+        $scope.is_searching = false;
+        $scope.simulate(1);
+        $scope.location_found = true;
+    }, 2500, true);
+
   $scope.goToChat = function (){
     Chat.setUsername($scope.myuser);
     $rootScope.currentUser = $scope.myuser;
@@ -77,6 +83,7 @@ angular.module('starter.controllers',  [])
     Chat.setPlace($scope.placeId);
     $location.path('/chat');
   };
+
   $scope.userInputChange = function(val) {
     $scope.myuser = val;
   };

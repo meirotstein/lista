@@ -66,6 +66,7 @@ angular.module('socket-chat.services', [])
                     }else {
                         msg.time = new Date();
                         messages.push(msg);
+                        $.playSound("/sounds/knuckle");
                         $ionicScrollDelegate.scrollBottom(true);
                     }
                 }

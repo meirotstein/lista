@@ -10,7 +10,7 @@ function start(resourcesPath) {
         res.sendFile(resourcesPath + 'index.html');
     });
 
-    app.get(/\/(css|img|js|lib|templates)\/.*/, function(req, res){
+    app.get(/\/(css|img|js|lib|templates|sounds)\/.*/, function(req, res){
         res.sendFile(resourcesPath + req.url);
     });
 

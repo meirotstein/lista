@@ -91,7 +91,8 @@ $scope.simulate = function (val) {
                 var request = {
                     location: pyrmont,
                     radius: 100,
-                    rankby: google.maps.places.RankBy.DISTANCE
+                    rankby: google.maps.places.RankBy.DISTANCE,
+                    keyword: '*'
                     //types: ['store']
                 };
                 var service = new google.maps.places.PlacesService(document.getElementById('map-canvas'));

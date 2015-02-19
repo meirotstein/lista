@@ -61,6 +61,7 @@ angular.module('socket-chat.services', [])
         socket.on('chat message', function (msg) {
             $rootScope.$apply(function () {
                 if (placeId === msg.place) {
+                    msg.time = new Date();
                     messages.push(msg);
                     $ionicScrollDelegate.scrollBottom(true);
                 }

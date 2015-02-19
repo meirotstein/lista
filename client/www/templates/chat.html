@@ -15,7 +15,7 @@
             <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getCurrentTime()}}</span></span>
           </div>
           <div ng-if="$root.currentUser === message.username">
-            <span class="username-me"><span class="time">{{getCurrentTime()}}</span> {{message.username}} <span class="dot-me">.</span></span>
+            <span class="username-me"><span class="time">{{getTime(message.time)}}</span> {{message.username}} <span class="dot-me">.</span></span>
           </div>
         </div>
         <div class="bubble-container">

@@ -206,9 +206,8 @@ $scope.simulate = function (val) {
     }
   };
 
-  $scope.getCurrentTime = function() {
-    var now = new Date();
-    return now.getHours() + ":" + now.getMinutes();
+  $scope.getTime = function(date) {
+    return date.getHours() + ":" + date.getMinutes();
   }
 
 })

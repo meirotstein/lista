@@ -230,4 +230,13 @@ $scope.simulate = function (val) {
 
 .controller('AccountCtrl', function($scope,Chat) {
   $scope.username = Chat.getUsername();
+})
+
+.controller('GeneralCtrl', function($scope,Chat) {
+  $scope.startGame = function() {
+    Chat.sendMessage("___startTrivia___");
+  }
 });
+
+
+

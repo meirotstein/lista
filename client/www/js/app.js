@@ -33,6 +33,13 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
     templateUrl: 'templates/chat.html',
     controller: 'ChatCtrl'
 
+  });
+
+  $stateProvider.state('triv', {
+    url: '/triv',
+    templateUrl: 'templates/start-game.html',
+    controller: 'GeneralCtrl'
+
   })
 })
 

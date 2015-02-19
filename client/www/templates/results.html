@@ -1,9 +1,12 @@
- <ion-view title="Results" >
+<ion-view title="Results" class="results-bg" ng-controller="ResultsCtrl">
   <ion-content class="resultsView">
- <div >    
-    <h3 style="color:#fff">Eitan</h3>
-  </div>
-
-
-      </ion-content>
-    </ion-view>
+    <div class="row row-center" style="margin-top:320px">
+      <div class="col" >
+        <h1>{{winner}}</h2>
+      </div>
+    </div>
+    </ion-content>
+  <ion-footer-bar class="bar-assertive" style="background:#7bd3da;border-top:1px solid #fff">
+    <div class="title" ng-click="backToChat()">Back to chat</div>
+  </ion-footer-bar>      
+</ion-view>

@@ -130,6 +130,13 @@ $scope.simulate = function (val) {
 
 })
 
+.controller('ResultsCtrl', function($scope, $location) {
+  $scope.winner = "איתן"
+  $scope.backToChat = function(){
+    $location.path('/chat');
+  }
+})
+
 
 .controller('ParentCtrl', function($scope, $ionicLoading, $ionicPopup, Chat) {
 

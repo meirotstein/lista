@@ -126,18 +126,26 @@ input.inp::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   position: relative;
   top:100px;
 }
-
+.winner {
+}
 .resultsView{
-    background-color: -webkit-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* W3C */    
-    background-image: url(../img/Winner_screen.jpg);  
+    background: url(../img/Winner_screen.png) center center;  
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 380px 560px;
     top:0
     left:0;
     bottom:0;
     right:0;
     z-index: -1;
+}
+.resultsView h1 {
+  text-align: center;
+  color:#fff;
+}
+.results-bg{
+    background: -webkit-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* W3C */    
+
 }

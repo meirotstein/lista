@@ -20,6 +20,7 @@ function start(resourcesPath) {
         var userPlace;
         var updatePlacesMap = _.once(function(place) {
             userPlace = place;
+            places[place] |= 0;
             places[place]++;
             emitConnectedUsers(place);
         });
@@ -31,15 +32,15 @@ function start(resourcesPath) {
         socket.on('disconnect', function() {
             console.log('a user disconnected with socket id ' + socket.id);
             if (userPlace) {
-                places[place]--;
-                emitConnectedUsers();
+                places[userPlace]--;
+                emitConnectedUsers(userPlace);
             }
         });
     });
     function emitConnectedUsers(place) {
         var event = {place: place, connectedUsers: places[place]};
         io.emit('connected users', event);
-        console.log("Send evet: " + JSON.stringify(event));
+        console.log("Sent event: " + JSON.stringify(event));
     }
 
     var port = process.env.PORT || 3000;

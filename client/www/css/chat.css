@@ -93,6 +93,12 @@
     color: #808080;
 }
 
+/* start overrides ionic has-footer css */
+.has-footer {
+    bottom: 100px !important;
+}
+/* end overrides ionic has-footer css*/
+
 .chat-footer {
     height: 100px !important;
     background-color: #E6E6E6 !important;

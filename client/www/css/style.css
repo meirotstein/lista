@@ -121,30 +121,23 @@ input[type="text"].inp
 input.inp::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #fff;
   text-indent: 0; }
+
 .progress {
   position: relative;
   top:100px;
-
 }
 
-/* when hiding the thing */
-.progress.ng-hide-add{ 
-  -webkit-animation:1s eitan ease; 
-  animation:1s eitan ease; 
-
-}
-
-/* light speed out */
-@-webkit-keyframes eitan {
-  0% {
-  }
-
-  100% {
-    -webkit-transform: translate(0, -100px);
-  }
-}
-
-myformShow.ng-hide-remove{
-
-
+.resultsView{
+    background-color: -webkit-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* W3C */    
+    background-image: url(../img/Winner_screen.jpg);  
+    background-repeat: no-repeat;
+    background-size: contain;
+    top:0
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: -1;
 }

@@ -3,28 +3,33 @@
 <ion-view title="Sign in" >
 
   <ion-content class="loading">
-    <div class="found-bg" ng-if="location_found">
+    <div class="loading" show="location_found">
+    </div>  
+    <div class="found-bg" ng-show="location_found">
     </div>
-    <div class="search-text" ng-if="is_searching">Searching<br>...
+    <div class="search-text" ng-show="is_searching">Searching<br>...
     </div>
 
-      <div class="row row-center results" ng-if="location_found">
+      <div class="row row-center results" ng-show="location_found">
         <div class="col">
           <div class="location-text">
             {{street}}
             <p>{{city}}</p>
           </div>
-          <div class="col">
-              <input ng-model="myuser" style="margin:auto;color:#fff;width:200px" class="inp" placeholder="what's your name?" value="" type="text" ng-change="userInputChange(myuser)">
-              <div class="goButton">
-                  <button class="mybutton" ng-click="goToChat()">GO</button>
-              </div>
+  
+          <input ng-model="myuser" style="margin:auto;color:#fff;width:200px" class="inp" placeholder="what's your name?" value="" type="text" ng-change="userInputChange(myuser)">
+          
+          <div class="goButton">
+            <button class="mybutton" ng-click="goToChat()">GO</button>
           </div>
+
           <div class="google-logo">
               <img src="img/powered-by-google-on-white.png">
           </div>
+
+          </div>
+ 
         </div>
-      </div>  
       <div class="progress" ng-if="location_found" >
           <div class="col" id="map-canvas"></div>
       </div>

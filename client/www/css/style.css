@@ -31,9 +31,13 @@ input[type="text"]
 .loading {
   background: #7bd3da url(../img/loading.gif) no-repeat center center;  
   background-attachment: fixed;
+  background-position: center 30px;   
   text-align: center;
   margin: auto;
-  position: relative;
+  position: absolute;
+  z-index: -5;
+  width:100%;
+  height:800px;
 }
 
 .found-bg{
@@ -50,7 +54,7 @@ input[type="text"]
 .search-text{
   position: relative;
   text-align :center;
-  top:410px;
+  top:430px;
   color:#fff;
   font-family: SAP_CLEAR09_light;
   font-size: 24px;
@@ -66,6 +70,7 @@ input[type="text"]
     font-family: SAP_CLEAR09_light;
     font-size: 18px; 
     margin-bottom:80px;
+    height:50px;
 }
 .location-text p{
       font-size: 16px; 
@@ -82,13 +87,13 @@ input[type="text"]
 }
 .loading .goButton{
   text-align:center;
-  margin-top:160px
+  margin-top:70px
 
 }
 .mybutton{
   border-color: #7bd3da;
   border-radius: 100%;
-  background-color: #68BCBF;
+  background-color: #68bcbf;
   color: #7bd3da;
   position: relative;
   display: inline-block;

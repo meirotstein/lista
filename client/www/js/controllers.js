@@ -67,9 +67,12 @@ angular.module('starter.controllers',  [])
   $scope.myuser = '';  
     $timeout(function() {
         $scope.is_searching = false;
+    }, 2500, true);
+
+    $timeout(function() {
         $scope.simulate(1);
         $scope.location_found = true;
-    }, 2500, true);
+    }, 5000, true);    
 
   $scope.goToChat = function (){
     Chat.setUsername($scope.myuser);
@@ -110,14 +113,7 @@ $scope.simulate = function (val) {
         } else {
             $scope.street = "Geolocation is not supported by this browser.";
         }
-
-        $scope.circleAnim = '';
-        $scope.circleAnim2 = '';
-    } else if (val == 2) {
-        $scope.myformShow = true;
-        $scope.progressShow = false;
-        $scope.myClass = 'progressShow';
-    }
+    } 
   }
 })
 

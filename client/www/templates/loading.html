@@ -1,40 +1,43 @@
 
 
 <ion-view title="Sign in" >
-  <ion-content class="loading">
+    <ion-content class="loading">
 
-<div class="progress" ng-show="progressShow" >
-  <div class="row-center">
-    <div class="col">
-        <div class="circle" ng-class="circleAnim"></div>
-        <div class="circle circle2" ng-class="circleAnim2"></div>
-    </div>
-    <div class="col" ng-click="simulate(1)">
-          <img class="mylogo" src="img/appLogo.png" style="width:60px">
-    </div>
-  </div>
-  <div class="row-center">
-    <div class="col">
-      <div class="text" ng-click="simulate(2)">{{street}}
-        <p>{{city}}</p></div>
-    </div>
-    <div class="col" id="map-canvas"></div>
-  </div>
-</div>
-<div  class="myform"  ng-show="myformShow">
-  <div class="row row-center">
-    <div class="col" ng-if="true">
-        <input ng-model="myuser" style="margin:auto;color:#fff;width:200px" class="inp" placeholder="what's your name?" value="" type="text" ng-change="userInputChange(myuser)">
-       <div style="text-align:center;margin-top:100px">
-       <button class="mybutton" ng-click="goToChat()">GO</button>
-    </div>  
+        <div class="progress" ng-show="progressShow" >
+            <div class="row-center">
+                <div class="col">
+                    <div class="circle" ng-class="circleAnim"></div>
+                    <div class="circle circle2" ng-class="circleAnim2"></div>
+                </div>
+                <div class="google-logo">
+                    <img src="img/powered-by-google-on-white.png">
+                </div>
+                <div class="col" ng-click="simulate(1)">
+                    <img class="mylogo" src="img/appLogo.png" style="width:60px">
+                </div>
+            </div>
+            <div class="row-center">
+                <div class="col">
+                    <div class="text" ng-click="simulate(2)">{{street}}
+                        <p>{{city}}</p></div>
+                </div>
+            </div>
+            <div class="col" id="map-canvas"></div>
+        </div>
+        <div  class="myform"  ng-show="myformShow">
+            <div class="row row-center">
+                <div class="col" ng-if="true">
+                    <input ng-model="myuser" style="margin:auto;color:#fff;width:200px" class="inp" placeholder="what's your name?" value="" type="text" ng-change="userInputChange(myuser)">
+                    <div style="text-align:center;margin-top:100px">
+                        <button class="mybutton" ng-click="goToChat()">GO</button>
+                    </div>
 
 
-    </div>
-  </div> 
-</div>
+                </div>
+            </div>
+        </div>
 
-  </ion-content>
+    </ion-content>
 </ion-view>
 
     

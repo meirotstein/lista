@@ -12,7 +12,7 @@
       <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
         <div class="message-title">
           <div ng-if="$root.currentUser !== message.username">
-            <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getCurrentTime()}}</span></span>
+            <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getTime(message.time)}}</span></span>
           </div>
           <div ng-if="$root.currentUser === message.username">
             <span class="username-me"><span class="time">{{getTime(message.time)}}</span> {{message.username}} <span class="dot-me">.</span></span>

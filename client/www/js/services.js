@@ -42,6 +42,7 @@ angular.module('socket-chat.services', [])
             },
             setPlace: function (_placeId) {
                 placeId = _placeId;
+                $rootScope.placeId = _placeId;
             },
             getUsernames: function () {
                 return $http.get(baseUrl + '/usernames');
@@ -88,6 +89,41 @@ angular.module('socket-chat.services', [])
         });
 
         return functions;
+
+    })
+
+    .factory('Game', function ($rootScope , $location) {
+
+        var socket = io();
+
+        socket.on('begin_game' , function(place){
+           if(place === $rootScope.placeId){
+               $location.path('/cards');
+               $rootScope.$apply();
+           }
+        });
+
+        socket.on('end_game', function(results){
+            if(results.place ===  $rootScope.placeId) {
+                $rootScope.winner = results.winner;
+                $location.path('/results');
+                $rootScope.$apply();
+            }
+        });
+
+        return {
+            begin: function (place) {
+               socket.emit('game_begin' , place);
+            },
+
+            sendAnswer: function (place , user , answer) {
+                socket.emit('game_answer' , {place:place , user:user , answer:answer});
+            },
+
+            end : function(place) {
+                socket.emit('game_end' , place);
+            }
+        }
 
     })
 

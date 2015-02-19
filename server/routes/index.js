@@ -6,6 +6,7 @@ var _ = require('lodash');
 function start(resourcesPath) {
     // map between place to number of connected users
     var places = {};
+    var games = {};
     app.get('/', function(req, res){
         res.sendFile(resourcesPath + 'index.html');
     });
@@ -36,6 +37,32 @@ function start(resourcesPath) {
                 emitConnectedUsers(userPlace);
             }
         });
+        socket.on('game_begin', function(place) {
+            if(!games[place]) {
+                games[place] = {winner:{name:'',score:0},users:{}};
+                io.emit('begin_game',place);
+            }
+        });
+        socket.on('game_answer', function(ans) {
+            var game = games[ans.place];
+            if(game) {
+                game[ans.user] |= 0;
+                if(ans.answer){
+                    game[ans.user]++;
+                    if(game[ans.user] > game.winner.score) {
+                        game.winner = {name: ans.user , score: game[ans.user]};
+                    }
+                }
+            }
+        });
+        socket.on('game_end', function(place) {
+            if(games[place]) {
+                var winner = games[place].winner;
+                games[place] = null;
+                io.emit('end_game',{place:place , winner:winner.name});
+            }
+        });
+
     });
     function emitConnectedUsers(place) {
         var event = {place: place, connectedUsers: places[place]};

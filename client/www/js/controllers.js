@@ -1,5 +1,5 @@
 angular.module('starter.controllers',  [])
-.controller('CardsCtrl', function($scope, $location, $interval, $location, TDCardDelegate) {
+.controller('CardsCtrl', function($scope, $location, $interval, $location, TDCardDelegate , Game , $rootScope) {
 
   var cardTypes = [
      {key:1,text: 'Has Bjorn visited Raanana?',answer:1},
@@ -15,7 +15,7 @@ angular.module('starter.controllers',  [])
   
     if($scope.index == $scope.maxCards) { 
       $scope.showCards=false;
-      $location.path('/results');
+      //$location.path('/results');
     }
     $scope.index++;
   };
@@ -33,7 +33,8 @@ angular.module('starter.controllers',  [])
         $scope.arc_intervals = $scope.countdown/30;
         if($scope.countdown == 0) {
           $interval.cancel(stopTime);
-          $location.path('/results');
+          Game.end($rootScope.placeId);
+          //$location.path('/results');
         }
       }
   };
@@ -55,6 +56,12 @@ angular.module('starter.controllers',  [])
     if (obj) key = obj.key;
     $scope.addCard();
   };
+
+  $scope.cardAnswered = function() {
+    return function(answer) {
+      Game.sendAnswer($rootScope.placeId , $rootScope.currentUser , answer);
+    }
+  }
 })
 .controller('LoadingCtrl', function($scope, $rootScope , $timeout, $location, Chat) {
   $scope.is_searching = true;
@@ -105,6 +112,11 @@ $scope.simulate = function (val) {
                             $scope.city = results[0].vicinity;
                             $scope.placeId = results[0].id;
                             $scope.$apply();
+                        }else {
+                          $scope.street = 'street';
+                          $scope.city = 'Raanan';
+                          $scope.placeId = 'myplaceid';
+                          $scope.$apply();
                         }
                     }
                 );
@@ -122,7 +134,7 @@ $scope.simulate = function (val) {
 })
 
 .controller('ResultsCtrl', function($scope, $location) {
-  $scope.winner = "איתן"
+  //$scope.winner = "איתן"
   $scope.backToChat = function(){
     $location.path('/chat');
   }
@@ -228,9 +240,9 @@ $scope.simulate = function (val) {
   $scope.username = Chat.getUsername();
 })
 
-.controller('GeneralCtrl', function($scope,Chat) {
+.controller('GeneralCtrl', function($scope,$rootScope,Game) {
   $scope.startGame = function() {
-    Chat.sendMessage("___startTrivia___");
+    Game.begin($rootScope.placeId);
   }
 });
 

@@ -36,7 +36,7 @@
   </div>
 
    <td-cards ng-if="showCards" style="top:0px">
-      <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index,card)" on-swipe-right="cardSwipedRight($index,card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}" key="{{card.key}}" answer="{{card.answer}}">
+      <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index,card)" on-swipe-right="cardSwipedRight($index,card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}" key="{{card.key}}" answer="{{card.answer}}" on-answered="cardAnswered()">
         <div class="image" ng-controller="CardCtrl">
           <div class="no-text"></div>          
           <div class="textCard">#{{card.key}} <br>{{card.text}}</div>

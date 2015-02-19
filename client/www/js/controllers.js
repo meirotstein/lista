@@ -1,30 +1,27 @@
 angular.module('starter.controllers',  [])
 .controller('CardsCtrl', function($scope, $location, $interval, $location, TDCardDelegate) {
-  console.log('CARDS CTRL');
 
   var cardTypes = [
-     {key:1,text: 'Do you like dogs?'},
-     {key:2,text: 'Do you eat bananas?'}
+     {key:1,text: 'Has Bjorn visited Raanana?',answer:1},
+     {key:2,text: 'Is Munich the capital of Germany?',answer:0}
   ];
-  $scope.showCards=true;
-  $scope.showTimmer = false;
   $scope.index = 1;
   $scope.cards = Array.prototype.slice.call(cardTypes, 0);
   $scope.maxCards = $scope.cards.length;
-
-    console.log('after slice ', $scope.cards);
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
     console.log('DESTROYED Card no.'+$scope.index);
   
-    if($scope.index == $scope.maxCards) {
-  
+    if($scope.index == $scope.maxCards) { 
       $scope.showCards=false;
       $location.path('/results');
     }
     $scope.index++;
   };
+
+  $scope.showCards=true;
+  $scope.showTimmer = false;  
   $scope.arc_intervals = 1;
   $scope.countdown = 30;
   $scope.showTimer = function(){
@@ -40,19 +37,17 @@ angular.module('starter.controllers',  [])
         }
       }
   };
-
   $scope.showTimer();
+
   $scope.addCard = function() {
     var newCard = cardTypes[0];
     $scope.cards.push(angular.extend({}, newCard));
 
   };
-  $scope.cardStyle = "bg-card-no";
 
   $scope.cardSwipedLeft = function(index,obj) {
-    console.log('LEFT CARD');
     var key = 0;
-    if (obj) key = obj.key;
+    if (obj) {key = obj.key;}
     $scope.addCard();
   };
   $scope.cardSwipedRight = function(index,obj) {

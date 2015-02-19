@@ -279,7 +279,9 @@
         onTransitionOut: '&',
         onPartialSwipe: '&',
         onSnapBack: '&',
-        onDestroy: '&'
+        onDestroy: '&',
+        key: '@',
+        answer: '@',
       },
       compile: function(element, attr) {
         return function($scope, $element, $attr, swipeCards) {
@@ -327,11 +329,15 @@
               });
             },
             onTransitionRight: function() {
+              var user_answer = ($scope.answer == 1) 
+              console.log('for question: '+$scope.key+' the answer is: '+user_answer)
               $timeout(function() {
                 $scope.onTransitionRight();
               });
             },
             onTransitionLeft: function() {
+              var user_answer = ($scope.answer == 0) 
+              console.log('for question: '+$scope.key+' the answer is: '+user_answer)
               $timeout(function() {
                 $scope.onTransitionLeft();
               });

@@ -23,24 +23,6 @@ td-card {
   background: #fff;
 
 }
-/*
-td-card.card-0 {
-  -webkit-transform: translate3d(0, 0px, 0);
-  transform: translate3d(0, 0px, 0);
-  top: 0px;
-  z-index: 10;
-}
-td-card.card-1 {
-  -webkit-transform: translate3d(0, 4px, 0);
-  transform: translate3d(0, 4px, 0);
-  z-index: 9;
-}
-td-card.card-2 {
-  -webkit-transform: translate3d(0, 8px, 0);
-  transform: translate3d(0, 8px, 0);
-  z-index: 8;
-}
-*/
 
 td-card .image {
   position: relative;
@@ -56,6 +38,7 @@ td-card .textCard{
   padding:20px;  
   width: 300px;
   height: 300px;
+  line-height: 30px;
   background: #d7ddde;
 }
 .yes-text {
@@ -80,7 +63,7 @@ td-card .textCard{
   transition: 0.2s opacity linear;
   opacity: 0;
 }
-.myMackdrop{
+/*.myMackdrop{
   position:absolute;
   top:0;
   left:0;
@@ -89,7 +72,7 @@ td-card .textCard{
   background:#000000;
   z-index: 20;
   opacity:.8;
-}
+}*/
 .triviaMessage{
   position:absolute;
   top:30px;
@@ -100,7 +83,6 @@ td-card .textCard{
 
 }
 .triviaMessage p{
-  
   margin-bottom:50px;
   font-size:26px;
   text-align: center;

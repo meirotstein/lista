@@ -1,6 +1,6 @@
 angular.module('socket-chat.services', [])
 
-    .factory('Chat', function ($rootScope, $http, $ionicScrollDelegate, Notification) {
+    .factory('Chat', function ($rootScope, $http, $ionicScrollDelegate, Notification , $location) {
 
         var username;
         var placeId;
@@ -61,9 +61,13 @@ angular.module('socket-chat.services', [])
         socket.on('chat message', function (msg) {
             $rootScope.$apply(function () {
                 if (placeId === msg.place) {
-                    msg.time = new Date();
-                    messages.push(msg);
-                    $ionicScrollDelegate.scrollBottom(true);
+                    if(msg.content === "___startTrivia___") {
+                        $location.path('/cards');
+                    }else {
+                        msg.time = new Date();
+                        messages.push(msg);
+                        $ionicScrollDelegate.scrollBottom(true);
+                    }
                 }
             });
         });

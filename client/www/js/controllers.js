@@ -76,7 +76,7 @@ angular.module('starter.controllers',  [])
     Chat.setUsername($scope.myuser);
     $rootScope.currentUser = $scope.myuser;
     $rootScope.place = $scope.street + ", " + $scope.city;
-    Chat.setPlace($rootScope.place);
+    Chat.setPlace($scope.placeId);
     $location.path('/chat');
   };
   $scope.userInputChange = function(val) {
@@ -100,6 +100,7 @@ $scope.simulate = function (val) {
                         if (status == google.maps.places.PlacesServiceStatus.OK) {
                             $scope.street = results[0].name;
                             $scope.city = results[0].vicinity;
+                            $scope.placeId = results[0].id;
                             $scope.$apply();
                         }
                     }

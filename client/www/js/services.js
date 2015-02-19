@@ -3,7 +3,7 @@ angular.module('socket-chat.services', [])
     .factory('Chat', function ($rootScope, $http, $ionicScrollDelegate, Notification) {
 
         var username;
-        var place;
+        var placeId;
         var messages = [];
 
         var baseUrl, socket;
@@ -29,7 +29,7 @@ angular.module('socket-chat.services', [])
                 var message = {
                     username: username,
                     content: msg,
-                    place: place
+                    place: placeId
                 };
                 socket.emit('chat message', message);
             },
@@ -40,8 +40,8 @@ angular.module('socket-chat.services', [])
                 username = newUsername;
                 socket.emit('add user', username);
             },
-            setPlace: function (newPlace) {
-                place = newPlace;
+            setPlace: function (_placeId) {
+                placeId = _placeId;
             },
             getUsernames: function () {
                 return $http.get(baseUrl + '/usernames');
@@ -60,7 +60,7 @@ angular.module('socket-chat.services', [])
 
         socket.on('chat message', function (msg) {
             $rootScope.$apply(function () {
-                if (place === msg.place) {
+                if (placeId === msg.place) {
                     messages.push(msg);
                     $ionicScrollDelegate.scrollBottom(true);
                 }

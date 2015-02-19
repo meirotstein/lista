@@ -1,19 +1,18 @@
 angular.module('socket-chat.services', [])
 
     .factory('Chat', function ($rootScope, $http, $ionicScrollDelegate, Notification , $location) {
-
+        var socket = $rootScope.socket = io();
         var username;
         var placeId;
         var messages = [];
 
-        var baseUrl, socket;
+        var baseUrl;
 
         if (window.location.origin.indexOf('localhost') == -1)
             baseUrl = 'https://socket-chat-server.com:443';
         else
             baseUrl = 'http://localhost:3000';
 
-        socket = io();
 
         var functions = {
             all: function () {
@@ -88,19 +87,11 @@ angular.module('socket-chat.services', [])
             Notification.hide();
         });
 
-        return functions;
-
-    })
-
-    .factory('Game', function ($rootScope , $location) {
-
-        var socket = io();
-
         socket.on('begin_game' , function(place){
-           if(place === $rootScope.placeId){
-               $location.path('/cards');
-               $rootScope.$apply();
-           }
+            if(place === $rootScope.placeId){
+                $location.path('/cards');
+                $rootScope.$apply();
+            }
         });
 
         socket.on('end_game', function(results){
@@ -110,6 +101,13 @@ angular.module('socket-chat.services', [])
                 $rootScope.$apply();
             }
         });
+
+        return functions;
+
+    })
+
+    .factory('Game', function ($rootScope , $location) {
+        var socket = $rootScope.socket;
 
         return {
             begin: function (place) {

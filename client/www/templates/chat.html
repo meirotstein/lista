@@ -1,34 +1,37 @@
-    <ion-view title="Chat">
+<ion-view title="Chat">
 
-      <div class="chat-header">
-        <img src="img/chat_logo.png" class="chat-logo">
-        <span class="title">Chat with</span><br>
-        <span class="place">{{place}}</span>
-      </div>
+  <div class="chat-header">
+    <img src="img/chat_logo.png" class="chat-logo">
+    <span class="title">Chat with</span><br>
+    <span class="place">{{place}}</span>
+  </div>
 
-      <ion-content scroll="true" class="has-header has-footer chat-content" style="padding: 10px;">
+  <ion-content scroll="true" class="has-header has-footer chat-content" style="padding: 10px;">
 
-        <ol class="messages">
-          <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
-            <div class="message-title">
-              <div ng-if="$root.currentUser !== message.username">
-                <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getCurrentTime()}}</span></span>
-              </div>
-              <div ng-if="$root.currentUser === message.username">
-                <span class="username-me"><span class="time">{{getCurrentTime()}}</span> {{message.username}} <span class="dot-me">.</span></span>
-              </div>
-            </div>
+    <ol class="messages">
+      <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
+        <div class="message-title">
+          <div ng-if="$root.currentUser !== message.username">
+            <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getCurrentTime()}}</span></span>
+          </div>
+          <div ng-if="$root.currentUser === message.username">
+            <span class="username-me"><span class="time">{{getCurrentTime()}}</span> {{message.username}} <span class="dot-me">.</span></span>
+          </div>
+        </div>
+        <div class="bubble-container">
+            <div class="bubble-pin" ng-class="{'bubble-pin-me' : $root.currentUser === message.username}"></div>
             <div class="bubble" ng-class="{'bubble-me' : $root.currentUser === message.username}">
               <p ng-bind="message.content" ng-class="{'userMsg': message.username == username}"></p>
             </div>
-          </li>
-        </ol>
-      </ion-content>
-
-      <ion-footer-bar class="bar-positive chat-footer">
-        <div class="center">
-            <textarea ng-model="newMessage" class="send-message-input" placeholder="Type your message" type="text"></textarea>
-            <img src="img/send_icon.png" class="send-icon" ng-click="sendMessage()">
         </div>
-      </ion-footer-bar>
-    </ion-view>
+      </li>
+    </ol>
+  </ion-content>
+
+  <ion-footer-bar class="bar-positive chat-footer">
+    <div class="center">
+      <textarea ng-model="newMessage" class="send-message-input" placeholder="Type your message" type="text"></textarea>
+      <img src="img/send_icon.png" class="send-icon" ng-click="sendMessage()">
+    </div>
+  </ion-footer-bar>
+</ion-view>

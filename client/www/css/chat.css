@@ -28,39 +28,42 @@
     top: 50px;
 }
 
-.bubble {
+.bubble-container {
+    width: 100%;
+    display: inline-block;
+}
+
+.bubble-container .bubble {
+    max-width: 80%;
     color: #FFFFFF;
     font-size: medium;
     position: relative;
-    width: 100%;
     padding: 10px;
     background: #7BD3DA;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
     margin-bottom: 20px;
+    float: left;
 }
 
-.bubble:after {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 2%;
+.bubble-container .bubble-pin {
+    margin-left: 2%;
     border-style: solid;
     border-width: 0 7px 6px;
     border-color: #7BD3DA transparent;
-    display: block;
     width: 0;
     z-index: 1;
 }
 
-.bubble-me {
+.bubble-container .bubble-me {
     background: #E77A77;
     text-align: right;
+    float: right;
 }
 
-.bubble-me:after {
-    left: 94%;
+.bubble-container .bubble-pin-me {
+    margin-left: 94%;
     border-color: #E77A77 transparent;
 }
 

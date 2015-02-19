@@ -21,35 +21,33 @@ angular.module('starter.controllers',  [])
     if($scope.index == $scope.maxCards) {
   
       $scope.showCards=false;
-      $location.path('/cards' );
+      $location.path('/results');
     }
     $scope.index++;
   };
   $scope.arc_intervals = 1;
-  $scope.countdown = 5;
+  $scope.countdown = 30;
   $scope.showTimer = function(){
-      //$ionicBackdrop.retain();
       $scope.showTimmer = true;
       stopTime = $interval(updateTime, 1000);
 
       function updateTime(){
         $scope.countdown--;
-        $scope.arc_intervals = $scope.countdown/5;
+        $scope.arc_intervals = $scope.countdown/30;
         if($scope.countdown == 0) {
           $interval.cancel(stopTime);
-          $location.path('/cards');
+          $location.path('/results');
         }
       }
   };
 
-
+  $scope.showTimer();
   $scope.addCard = function() {
-    //var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-    //newCard.id = Math.random();
     var newCard = cardTypes[0];
     $scope.cards.push(angular.extend({}, newCard));
 
   };
+  $scope.cardStyle = "bg-card-no";
 
   $scope.cardSwipedLeft = function(index,obj) {
     console.log('LEFT CARD');

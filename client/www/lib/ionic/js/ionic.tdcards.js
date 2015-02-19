@@ -286,7 +286,8 @@
           var el = $element[0];
           var leftText = el.querySelector('.no-text');
           var rightText = el.querySelector('.yes-text');
-          
+          var textCard = el.querySelector('.textCard');
+
           // Force hardware acceleration for animation - better performance on first touch
           el.style.transform = el.style.webkitTransform = 'translate3d(0px, 0px, 0px)';
 
@@ -295,17 +296,23 @@
             el: el,
             leftText: leftText,
             rightText: rightText,
+            textCard: textCard,
             onPartialSwipe: function(amt) {
               swipeCards.partial(amt);
               var self = this;
+              self.textCard.style.backgroundColor = '#d7ddde';                  
               $timeout(function() {
                 if (amt < 0) {
+                  self.textCard.style.backgroundColor = '#f47070';                  
                   self.leftText.style.opacity = fadeFn(-amt);
                   self.rightText.style.opacity = 0;
                 } else {
+                  self.textCard.style.backgroundColor = '#7ae1af';
                   self.leftText.style.opacity = 0;
                   self.rightText.style.opacity = fadeFn(amt);
                 }
+                //self.textCard.style.backgroundColor = '#d7ddde';                  
+
                 $scope.onPartialSwipe({amt: amt});
               });
             },
@@ -345,8 +352,10 @@
               });
             },
             onSnapBack: function(startX, startY, startRotation) {
+
               var leftText = el.querySelector('.yes-text');
               var rightText = el.querySelector('.no-text');
+              var textCard = el.querySelector('.textCard');
 
               var animation = collide.animation({
                 // 'linear|ease|ease-in|ease-out|ease-in-out|cubic-bezer(x1,y1,x2,y2)',
@@ -369,6 +378,7 @@
                 el.style.transform = el.style.webkitTransform = 'translate3d(' + (startX - startX*v) + 'px, ' + (startY - startY*v) + 'px, 0) rotate(' + (startRotation - startRotation*v) + 'rad)';
                 rightText.style.opacity = 0;
                 leftText.style.opacity = 0;
+                textCard.style.backgroundColor = '#d7ddde';   
               })
               .start();
 

@@ -1,6 +1,6 @@
- <ion-view title="Home" ng-controller="CardsCtrl" ng-click="showTimer()">
+ <ion-view title="Home" class="cardsView" ng-controller="CardsCtrl">
 
-  <div class="triviaMessage" ng-if="showTimmer">
+  <!--div class="triviaMessage" ng-if="showTimmer">
   <div class="row row-center">
     <div class="col">
       <p>Trivia quiz will start in</p>
@@ -14,25 +14,33 @@
         counter-clockwise="false"
         background="gray">
       </progress-arc>
+    </div>
+  </div>     
+  </div-->
 
-
-      <!--div class="timer">
-        <div class="mask"></div>
-      </div-->
-
+  <div class="triviaMessage">
+  <div class="row row-center">
+    <div class="col">
+      <p class="counter">{{countdown}}</p>
+      <progress-arc
+        class="arc"
+        size="120"
+        stroke="white"
+        stroke-width="3"
+        complete="arc_intervals"
+        counter-clockwise="false"
+        background="#7bd3da">
+      </progress-arc>      
     </div>
   </div>     
   </div>
 
-  <div class="myMackdrop" ng-if="showTimmer"></div>
-
-   <td-cards ng-if="showCards">
+   <td-cards ng-if="showCards" style="top:0px">
       <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index,card)" on-swipe-right="cardSwipedRight($index,card)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
         <div class="image" ng-controller="CardCtrl">
-          <div class="no-text">NO</div>
-          
-          <div class="textCard">{{card.text}} {{card.key}}</div>
-          <div class="yes-text">YES</div>
+          <div class="no-text"></div>          
+          <div class="textCard">{{card.key}}. {{card.text}}</div>
+          <div class="yes-text"></div>
         </div>
       </td-card>
     </td-cards>

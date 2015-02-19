@@ -23,6 +23,11 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
     templateUrl: "templates/cards.html"
   });
 
+  $stateProvider.state('results', {
+    url: '/results',
+    templateUrl: "templates/results.html"
+  });
+
   $stateProvider.state('chat', {
     url: '/chat',
     templateUrl: 'templates/chat.html',

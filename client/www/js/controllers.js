@@ -78,8 +78,7 @@ angular.module('starter.controllers',  [])
 
     $timeout(function() {
         $scope.simulate(1);
-        $scope.location_found = true;
-    }, 5000, true);    
+    }, 3000, true);    
 
   $scope.goToChat = function (){
     Chat.setUsername($scope.myuser);
@@ -111,10 +110,12 @@ $scope.simulate = function (val) {
                             $scope.street = results[0].name;
                             $scope.city = results[0].vicinity;
                             $scope.placeId = results[0].id;
+                            $scope.location_found = true;
+
                             $scope.$apply();
                         }else {
                           $scope.street = 'street';
-                          $scope.city = 'Raanan';
+                          $scope.city = 'Raanana';
                           $scope.placeId = 'myplaceid';
                           $scope.$apply();
                         }

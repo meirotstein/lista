@@ -34,9 +34,10 @@ angular.module('starter.controllers',  [])
   $scope.showCards=true;
   $scope.showTimmer = false;  
   $scope.arc_intervals = 1;
-  $scope.countdown = 30;
+
   $scope.showTimer = function(){
       $scope.showTimmer = true;
+      $scope.countdown = 30;
       stopTime = $interval(updateTime, 1000);
 
       function updateTime(){
@@ -124,10 +125,12 @@ $scope.simulate = function (val) {
                             $scope.location_found = true;
 
                             $scope.$apply();
-                        }else {
+                        }else { //fallback for zero results
                           $scope.street = 'street';
                           $scope.city = 'Raanana';
                           $scope.placeId = 'myplaceid';
+                          $scope.location_found = true;
+
                           $scope.$apply();
                         }
                     }

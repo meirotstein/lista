@@ -44,8 +44,8 @@ function start(resourcesPath) {
         socket.on('game_begin', function(place) {
             if(!games[place]) {
                 games[place] = {winner:{name:'',score:0},users:{}};
-                io.emit('begin_game',place);
             }
+            io.emit('begin_game',place);
         });
         socket.on('game_answer', function(ans) {
             var game = games[ans.place];

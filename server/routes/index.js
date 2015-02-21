@@ -10,6 +10,10 @@ function start(resourcesPath) {
     app.get('/', function(req, res){
         res.sendFile(resourcesPath + 'index.html');
     });
+    // added by EK to load the dashboard
+    app.get('/dashboard', function(req, res){
+        res.sendFile(resourcesPath + 'dashboard.html');
+    });
 
     app.get(/\/(css|img|js|lib|templates|sounds)\/.*/, function(req, res){
         res.sendFile(resourcesPath + req.url);

@@ -132,6 +132,7 @@ input.inp::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   top:100px;
 }
 .winner {
+   font-family: segoeuil;
 }
 .resultsView{
     background: -webkit-linear-gradient(top,  #7bd3da 1%,#68bcbf 58%,#47748f 100%); /* Chrome10+,Safari5.1+ */
@@ -147,6 +148,7 @@ input.inp::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     background-image: url(../img/Winner_screen.png);
     background-repeat: no-repeat;
     background-size: 380px 560px;
+    background-position: top center;
     position: absolute;
     top:0;
     left:0;

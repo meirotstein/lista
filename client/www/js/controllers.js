@@ -2,8 +2,19 @@ angular.module('starter.controllers',  [])
 .controller('CardsCtrl', function($scope, $location, $interval, $location, TDCardDelegate , Game , $rootScope) {
 
   var cardTypes = [
-     {key:1,text: 'Has Bjorn visited Raanana?',answer:1},
-     {key:2,text: 'Is Munich the capital of Germany?',answer:0}
+     {key:1,text: 'All of following were Beatles: Lennon, Ringo, Paul, Hans Solo ',answer:0},
+     {key:2,text: 'Is Munich the capital city of Germany?',answer:0},
+     {key:3,text: 'Steve Jobs dropped out of high school',answer:0},
+     {key:4,text: 'The average human dream lasts only 2 to 3 seconds',answer:1},
+     {key:5,text: 'CPU means Computer Parts Used',answer:0},
+     {key:6,text: 'When an octopus gets angry, it shoots a stream of blue “ink”',answer:0},
+     {key:7,text: 'SAP offer more than 25 industry-specific ERP solution',answer:1},
+     {key:8,text: 'A pregnancy lasts 60 weeks',answer:0},
+     {key:9,text: 'SAP servers more than 50 million cloud users',answer:1},
+     {key:10,text: 'ROFL means "Rolling On Floor Liking"',answer:0},
+     {key:11,text: 'Coughing can cause air to move through your windpipe faster than the speed of sound',answer:1},
+
+
   ];
   $scope.index = 1;
   $scope.cards = Array.prototype.slice.call(cardTypes, 0);

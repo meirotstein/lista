@@ -34,13 +34,18 @@ td-card img {
 }
 td-card .textCard{
   font-family: segoeuil;
-  font-size: 26px;
+  font-size: 22px;
   padding:20px;  
   width: 300px;
   height: 300px;
   line-height: 30px;
   background: #d7ddde;
 }
+td-card .textCard .number{
+  margin-bottom:10px;
+  font-size: 26px;
+}
+
 .yes-text {
   position: absolute;
   top: 10px;

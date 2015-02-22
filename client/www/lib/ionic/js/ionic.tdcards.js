@@ -303,16 +303,18 @@
             onPartialSwipe: function(amt) {
               swipeCards.partial(amt);
               var self = this;
-              self.textCard.style.backgroundColor = '#d7ddde';                  
+              self.textCard.style.backgroundColor = '#d7ddde';    
+              self.el.style.opacity = 1;
+              
               $timeout(function() {
                 if (amt < 0) {
                   self.textCard.style.backgroundColor = '#f47070';                  
-                  self.leftText.style.opacity = fadeFn(-amt);
-                  self.rightText.style.opacity = 0;
+                  //self.leftText.style.opacity = fadeFn(-amt);
+                  self.el.style.opacity = 0.8;
                 } else {
                   self.textCard.style.backgroundColor = '#7ae1af';
-                  self.leftText.style.opacity = 0;
-                  self.rightText.style.opacity = fadeFn(amt);
+                  self.el.style.opacity = 0.8;
+                  //self.rightText.style.opacity = fadeFn(amt);
                 }
                 //self.textCard.style.backgroundColor = '#d7ddde';                  
 
@@ -387,7 +389,9 @@
                 el.style.transform = el.style.webkitTransform = 'translate3d(' + (startX - startX*v) + 'px, ' + (startY - startY*v) + 'px, 0) rotate(' + (startRotation - startRotation*v) + 'rad)';
                 rightText.style.opacity = 0;
                 leftText.style.opacity = 0;
-                textCard.style.backgroundColor = '#d7ddde';   
+                textCard.style.backgroundColor = '#d7ddde'; 
+                el.style.opacity = 1;
+  
               })
               .start();
 

@@ -143,11 +143,11 @@
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   <script type="text/javascript">
-    angular.module('myApp', ['chartjs-directive','socket-chat.services'])
+    angular.module('myApp', ['chartjs-directive'])
    // angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat.services',
     //    'starter.controllers','ngAnimate','angular-progress-arc'])
 
-      .controller('myController', function($scope, $interval, Game){
+      .controller('myController', function($scope, $interval){
   
         $scope.numUsers = '12'; 
         $scope.numMssgs = '122';         
@@ -228,17 +228,11 @@
         function doData(){
           $scope.getActivity()
           //$scope.myChart.addData(Math.floor((Math.random()*100)+1), $scope.counter++);
-
         }
-
-          $scope.startGame = function() {
-            Game.begin('cb034887083701fc5801f5161079f3cb3a83aec2');
-          }
       });
 
 
   </script>
-    <script src="js/services.js"></script>
 
   </body>
 </html>

@@ -9,7 +9,7 @@ angular.module('socket-chat.services', [])
         var baseUrl;
 
         if (window.location.origin.indexOf('localhost') == -1)
-            baseUrl = 'https://socket-chat-server.com:443';
+            baseUrl = 'https://limitless-tor-7276.herokuapp.com';
         else
             baseUrl = 'http://localhost:3000';
 
@@ -108,7 +108,7 @@ angular.module('socket-chat.services', [])
 
     .factory('Game', function ($rootScope , $location) {
         var socket = $rootScope.socket;
-
+        console.log(socket)
         return {
             begin: function (place) {
                socket.emit('game_begin' , place);

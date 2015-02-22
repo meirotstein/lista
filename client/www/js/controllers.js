@@ -119,9 +119,9 @@ $scope.simulate = function (val) {
                 var service = new google.maps.places.PlacesService(document.getElementById('map-canvas'));
                 service.nearbySearch(request, function (results, status) {
                         if (status == google.maps.places.PlacesServiceStatus.OK) {
-                            $scope.street = results[0].name;
-                            $scope.city = results[0].vicinity;
-                            $scope.placeId = results[0].id;
+                            $scope.street = "SAP Labs Israel Ltd.";//results[0].name;
+                            $scope.city = "Ha-Tidhar Street 15, Ra'anana"; //results[0].vicinity;
+                            $scope.placeId = 7;//results[0].id;
                             $scope.location_found = true;
 
                             $scope.$apply();

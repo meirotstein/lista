@@ -16,16 +16,29 @@
     padding-right: 40px;
 }
 
-.chat-logo {
-    float:left;
-    padding-top:5px;
-    padding-left:10px;
-    width: 40px;
+.chat-settings {
+    float: left;
+    padding-top: 21px;
+    padding-left: 35px;
+}
+
+.chat-menu {
+    float: right;
+    padding-top: 21px;
+    padding-right: 35px;
+}
+
+.message-draw {
+    margin-top: 155px !important;
 }
 
 .chat-content {
     background-color: #363636;
     top: 50px;
+}
+
+.custom-header {
+    top: 278px !important;
 }
 
 .eqbox-container {
@@ -50,8 +63,8 @@
 .bubble-container {
     width: 100%;
     display: inline-block;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-top: 15px;
 }
 
@@ -80,7 +93,7 @@
     z-index: 999;
     border-color: #FE6678;
     position: absolute;
-    left: -2px;
+    left: 14px;
 }
 
 .bubble-container .bubble-pin img {

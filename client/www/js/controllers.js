@@ -322,6 +322,61 @@ angular.module('starter.controllers', [])
             return date.getHours() + ":" + date.getMinutes();
         }
 
+        $scope.activeIndex = 0;
+        $scope.users = [
+            {
+                title: 'Eitan',
+                active: false,
+                avatar: 'img/Avatar0.png',
+            },
+            {
+                title: 'Meir',
+                active: false,
+                avatar: 'img/Avatar1.png'
+            },
+            {
+                title: 'Clara',
+                active: false,
+                avatar: 'img/Avatar2.png'
+            }
+        ];
+
+        $scope.setUsersStatus = function(index){
+            $scope.users[0].active = false;
+            $scope.users[1].active = false;
+            $scope.users[2].active = false;
+
+            $scope.users[$scope.activeIndex].active = true;
+
+        };
+
+        $scope.getAvatarForCurrentUser = function() {
+            if($scope.messages.current) {
+                var user = $scope.users.filter(function(u){return u.title === $scope.messages.current.username;});
+                if(user.length) {
+                    return user[0].avatar;
+                }
+            }
+            return 'img/Avatar2.png'; //default...
+        }
+
+
+
+
+
+
+        $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+        $scope.addItem = function() {
+            var newItemNo = $scope.items.length + 1;
+            $scope.items.push('Item ' + newItemNo);
+        };
+
+        $scope.status = {
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
+
     })
 
     .controller('PeopleCtrl', function ($scope, Chat) {

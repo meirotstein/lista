@@ -180,4 +180,131 @@
     float: right;
 }
 
+body {
+    margin:10px;
+    background:#252525;
+}
+
+
+.avatar {
+    float: left;
+    margin-top: 1.6rem;
+    position: relative;
+    width:70px;
+    height:70px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border:7px solid #60ec99;
+
+
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+}
+
+.avatar:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+}
+.avatar.selected {
+    margin-top:12px;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+}
+.vLine{
+    background:url(../img/vLine.png) no-repeat bottom;
+    height:194px;
+    float:left;
+}
+.base-class {
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.base-class.my-class {
+    color: red;
+    font-size:3em;
+}
+.avatarLine{
+    margin-top: 3.3rem;
+    float: left;
+    background-color: #60ec99;
+    width: 33px;
+    height: 14px;
+    margin-left: -1px;
+    margin-right: -1px;
+}
+
+.avatars-container {
+    padding-top: 100px;
+    padding-left: 25%;
+}
+#avatars:last-child .avatarLine{
+    display: none;
+}
+.clearfix {clear:both;}
+
+div.mssg{
+    color: lime;
+    font-family: "Courier";
+    font-size: 20px;
+    margin: 10px 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 4s steps(60, end);
+}
+
+div.mssg:nth-child(2){
+    animation: type2 8s steps(60, end);
+}
+
+div.mssg a{
+    color: lime;
+    text-decoration: none;
+}
+
+/*span{
+  animation: blink 1s infinite;
+}
+*/
+@keyframes type{
+    from { width: 0; }
+}
+
+@keyframes type2{
+    0%{width: 0;}
+    50%{width: 0;}
+    100%{ width: 100; }
+}
+
+@keyframes blink{
+    to{opacity: .0;}
+}
+
+::selection{
+    background: black;
+}
+
 

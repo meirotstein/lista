@@ -3,6 +3,13 @@
   <div class="chat-header">
     <img src="img/settings.png" class="chat-settings">
     <img src="img/menu.png" class="chat-menu">
+    <div class="avatars-container">
+      <div id="avatars" ng-repeat="user in users">
+        <div ng-class="messages.current.username === user.title ? 'vLine' : ''">
+          <img id="{{title}}" class="avatar" ng-class="messages.current.username === user.title ? 'selected' : ''"  ng-src="{{user.avatar}}"></div>
+        <div class="avatarLine"></div>
+      </div>
+    </div>
   </div>
 
   <ion-content scroll="false" class="has-header custom-header has-footer chat-content" style="padding: 10px;">
@@ -22,7 +29,7 @@
         <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
           <div class="bubble-container">
             <div class="bubble-pin">
-              <img ng-src="{{message.avatar}}">
+              <img ng-src="{{getAvatarForCurrentUser()}}">
             </div>
             <div class="bubble">
               <p ng-bind-html="message.content" ng-class="{'userMsg': message.username == username}"></p>

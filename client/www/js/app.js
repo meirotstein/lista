@@ -9,53 +9,110 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
 
 
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/loading');
+    .config(function($stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.otherwise('/loading');
 
-  $stateProvider.state('loading', {
-    url: '/loading',
-    templateUrl: "templates/loading.html",
-    controller: 'LoadingCtrl'
-  });
+      $stateProvider.state('loading', {
+        url: '/loading',
+        templateUrl: "templates/loading.html",
+        controller: 'LoadingCtrl'
+      });
 
-  $stateProvider.state('cards', {
-    url: '/cards',
-    templateUrl: "templates/cards.html"
-  });
+      $stateProvider.state('cards', {
+        url: '/cards',
+        templateUrl: "templates/cards.html"
+      });
 
-  $stateProvider.state('results', {
-    url: '/results',
-    templateUrl: "templates/results.html"
-  });
+      $stateProvider.state('results', {
+        url: '/results',
+        templateUrl: "templates/results.html"
+      });
 
-  $stateProvider.state('chat', {
-    url: '/chat',
-    templateUrl: 'templates/chat.html',
-    controller: 'ChatCtrl'
+      $stateProvider.state('chat', {
+        url: '/chat',
+        templateUrl: 'templates/chat.html',
+        controller: 'ChatCtrl'
 
-  });
+      });
 
-  $stateProvider.state('triv', {
-    url: '/triv',
-    templateUrl: 'templates/start-game.html',
-    controller: 'GeneralCtrl'
+      $stateProvider.state('triv', {
+        url: '/triv',
+        templateUrl: 'templates/start-game.html',
+        controller: 'GeneralCtrl'
 
-  })
-})
+      });
+
+      $stateProvider.state('anim', {
+        url: '/anim',
+        templateUrl: 'templates/anim.html',
+        controller: 'GeneralCtrl'
+      });
+    })
 
 
-.directive('noScroll', function($document) {
+    .directive('noScroll', function($document) {
+
+      return {
+        restrict: 'A',
+        link: function($scope, $element, $attr) {
+
+          $document.on('touchmove', function(e) {
+            e.preventDefault();
+          });
+        }
+      }
+    }).directive('eqanim', function () {
 
   return {
-    restrict: 'A',
-    link: function($scope, $element, $attr) {
+    restrict: 'EA',
+    template:
+    '<div id="sound-on" class="music" ng-show="enable")>' +
+    '<div class="animbar"></div>' +
+    '<div class="animbar"></div>' +
+    '<div class="animbar"></div>' +
+    '</div>',
+    scope: {
+      enable: "=enable"
+    },
+    link: function (scope, element, attrs) {
 
-      $document.on('touchmove', function(e) {
-        e.preventDefault();
+      function enable() {
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '100px'}, 100, enable);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '100px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '100px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '70px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '100px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '40px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '30px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '60px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '90px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '100px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '20px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '60px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '50px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '20px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '10px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '70px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '40px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '90px'}, 150);
+      }
+
+      function stop() {
+        $("#sound-on .animbar:nth-child(3n)").stop( true, true ).fadeOut();
+        $("#sound-on .animbar:nth-child(3n + 1)").stop( true, true ).fadeOut();
+        $("#sound-on .animbar:nth-child(3n + 2)").stop( true, true ).fadeOut();
+      }
+
+      scope.$watch(function(){ return element.attr('enable'); }, function(value){
+        if (value) {
+          enable();
+        } else {
+          stop();
+        }
       });
     }
   }
-});
+});;
 
 
 

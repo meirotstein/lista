@@ -156,3 +156,24 @@ input.inp::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     bottom:0;
 
 }
+
+#sound-on .animbar {
+    border-style: solid;
+    border-color: #FFF;
+    height: 100px;
+    width: 30px;
+    position: absolute;
+    background: #FFF;
+}
+
+#sound-on .animbar:nth-child(3n + 1) {
+    /*left: 450px;*/
+}
+
+#sound-on .animbar:nth-child(3n + 2) {
+    left:50px;
+}
+
+#sound-on .animbar:nth-child(3n + 3) {
+    left:100px;
+}

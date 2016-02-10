@@ -5,6 +5,8 @@ angular.module('socket-chat.services', [])
         var username;
         var placeId;
         var messages = [];
+        var nextAvatarIdx = 0;
+        var avatarMap = {};
 
         var baseUrl;
 
@@ -29,7 +31,7 @@ angular.module('socket-chat.services', [])
                     username: username,
                     content: msg,
                     place: placeId,
-                    avatar: this.getAvatar()
+                    avatar: this.getAvatar(username)
                 };
                 socket.emit('chat message', message);
             },
@@ -54,7 +56,11 @@ angular.module('socket-chat.services', [])
                 socket.emit('stop typing');
             },
             getAvatar: function(user) {
-                return "img/Avatar.png"; //to be manipulated
+                if(!avatarMap[user]) {
+                    avatarMap[user] = "img/Avatar" + nextAvatarIdx + ".png";
+                    nextAvatarIdx = ++nextAvatarIdx % 3;
+                }
+                return avatarMap[user];
             }
         };
 
@@ -64,15 +70,17 @@ angular.module('socket-chat.services', [])
 
         socket.on('chat message', function (msg) {
             $rootScope.$apply(function () {
-                msg.avatar = functions.getAvatar();
+                msg.avatar = functions.getAvatar(msg.username);
                 if (placeId === msg.place) {
                     if(msg.content === "___startTrivia___") {
                         $location.path('/cards');
                     }else {
                         msg.time = new Date();
-                        messages.push(msg);
+                        if(messages.current) {
+                            messages.unshift(messages.current);
+                        }
+                        messages.current = msg;
                         $.playSound("/sounds/knuckle");
-                        $ionicScrollDelegate.scrollBottom(true);
                     }
                 }
             });

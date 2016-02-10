@@ -293,7 +293,7 @@ angular.module('starter.controllers', [])
 
         }
 
-            $scope.messages = Chat.getMessages();
+        $scope.messages = Chat.getMessages();
 
         Notification.hide();
 

@@ -8,6 +8,9 @@
   <ion-content scroll="false" class="has-header custom-header has-footer chat-content" style="padding: 10px;">
 
     <div class="eqbox-container">
+      <div class="current-message">
+        {{messages.current.content}}
+      </div>
       <div class="eqbox">
         <div eqanim enable=true></div>
       </div>
@@ -15,25 +18,25 @@
 
     <ion-content class="message-draw" scroll="true">
 
-    <ol class="messages">
-      <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
-        <div class="bubble-container">
+      <ol class="messages">
+        <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
+          <div class="bubble-container">
             <div class="bubble-pin">
               <img ng-src="{{message.avatar}}">
             </div>
             <div class="bubble">
               <p ng-bind="message.content" ng-class="{'userMsg': message.username == username}"></p>
             </div>
-        </div>
-      </li>
-    </ol>
+          </div>
+        </li>
+      </ol>
     </ion-content>
   </ion-content>
 
   <ion-footer-bar class="chat-footer">
     <!--<div class="center">-->
-      <!--<textarea ng-model="newMessage" class="send-message-input" placeholder="Type your message" type="text"></textarea>-->
-      <!--<img src="img/send_icon.png" class="send-icon" ng-click="sendMessage()">-->
+    <!--<textarea ng-model="newMessage" class="send-message-input" placeholder="Type your message" type="text"></textarea>-->
+    <!--<img src="img/send_icon.png" class="send-icon" ng-click="sendMessage()">-->
     <!--</div>-->
     <div class="center">
       <img src="img/shutDown.png" class="shutdown-icon">

@@ -183,8 +183,115 @@ angular.module('starter.controllers', [])
     })
 
     .controller('ChatCtrl', function ($scope, $ionicScrollDelegate, Chat, Notification) {
+        var first_char = /\S/;
+        function capitalize(s) {
+            return s.replace(first_char, function(m) { return m.toUpperCase(); });
+        }
+        function showInfo(s) {
+            //if (s) {
+            //    for (var child = info.firstChild; child; child = child.nextSibling) {
+            //        if (child.style) {
+            //            child.style.display = child.id == s ? 'inline' : 'none';
+            //        }
+            //    }
+            //    info.style.visibility = 'visible';
+            //} else {
+            //    info.style.visibility = 'hidden';
+            //}
+        }
+        var start_img = {}; // TODO reference to the element of the mic image
+        var ignore_onend;
 
-        $scope.messages = Chat.getMessages();
+        if (!('webkitSpeechRecognition' in window)) {
+            alert('move to chrome!');
+        } else {
+            var recognizing = false;
+            var recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.onstart = function() {
+                recognizing = true;
+                showInfo('info_speak_now');
+                start_img.src = '/intl/en/chrome/assets/common/images/content/mic-animate.gif';
+            };
+
+            recognition.onerror = function(event) {
+                if (event.error == 'no-speech') {
+                    start_img.src = '/intl/en/chrome/assets/common/images/content/mic.gif';
+                    showInfo('info_no_speech');
+                    ignore_onend = true;
+                }
+                if (event.error == 'audio-capture') {
+                    start_img.src = '/intl/en/chrome/assets/common/images/content/mic.gif';
+                    showInfo('info_no_microphone');
+                    ignore_onend = true;
+                }
+                if (event.error == 'not-allowed') {
+                    if (event.timeStamp - start_timestamp < 100) {
+                        showInfo('info_blocked');
+                    } else {
+                        showInfo('info_denied');
+                    }
+                    ignore_onend = true;
+                }
+            };
+
+            var final_transcript = '';
+
+            recognition.onend = function() {
+
+                recognizing = false;
+                if (ignore_onend) {
+                    return;
+                }
+                start_img.src = '/intl/en/chrome/assets/common/images/content/mic.gif';
+                //if (!final_transcript) {
+                //    showInfo('info_start');
+                //    return;
+                //}
+                showInfo('');
+                //if (window.getSelection) {
+                //    window.getSelection().removeAllRanges();
+                //    var range = document.createRange();
+                //    range.selectNode(document.getElementById('final_span'));
+                //    window.getSelection().addRange(range);
+                //}
+
+                console.log("ended: " + final_transcript);
+                recognition.start();
+                final_transcript = "";
+            };
+
+            recognition.onresult = function(event) {
+                var interim_transcript = '';
+                if (typeof(event.results) == 'undefined') {
+                    recognition.onend = null;
+                    recognition.stop();
+                    upgrade();
+                    return;
+                }
+                for (var i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        final_transcript += event.results[i][0].transcript;
+                    } else {
+                        interim_transcript += event.results[i][0].transcript;
+                    }
+                }
+                final_transcript = capitalize(final_transcript);
+                if (interim_transcript) {
+                    console.log("Says: " + interim_transcript);
+                    Chat.sendMessage(interim_transcript);
+                }
+                recognition.stop();
+            };
+
+            recognition.lang = "en-GB";
+            recognition.start();
+
+
+        }
+
+            $scope.messages = Chat.getMessages();
 
         Notification.hide();
 

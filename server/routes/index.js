@@ -23,7 +23,7 @@ function start(resourcesPath) {
         socket.on('chat message', function (msg) {
             function transformContent(/** string */content) {
                 _.forEach({
-                    'google': 'http://www.google.com',
+                    'Google': 'http://www.google.com',
                     'HTML': 'http://www.w3schools.com/tags/default.asp'
                 }, function (site, key) {
                     content = content.replace(key, '<a href="' + site + '" target="_blank">' + key + '</a>');

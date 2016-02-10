@@ -66,7 +66,7 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
   return {
     restrict: 'EA',
     template:
-    '<div id="sound-on" class="music" ng-show="enable")>' +
+    '<div id="sound-on" ng-show="enable")>' +
     '<div class="animbar"></div>' +
     '<div class="animbar"></div>' +
     '<div class="animbar"></div>' +
@@ -77,24 +77,25 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'socket-chat
     link: function (scope, element, attrs) {
 
       function enable() {
-        $("#sound-on .animbar:nth-child(3n)").animate({height: '100px'}, 100, enable);
-        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '100px'}, 150);
-        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '100px'}, 150);
-        $("#sound-on .animbar:nth-child(3n)").animate({height: '70px'}, 150);
-        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '100px'}, 150);
+        //return;
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '60px'}, 100, enable);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '60px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '60px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '50px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '60px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '40px'}, 150);
         $("#sound-on .animbar:nth-child(3n)").animate({height: '30px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '60px'}, 150);
-        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '90px'}, 150);
-        $("#sound-on .animbar:nth-child(3n)").animate({height: '100px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '55px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '60px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '20px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '60px'}, 150);
         $("#sound-on .animbar:nth-child(3n)").animate({height: '50px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '20px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '10px'}, 150);
-        $("#sound-on .animbar:nth-child(3n)").animate({height: '70px'}, 150);
+        $("#sound-on .animbar:nth-child(3n)").animate({height: '50px'}, 150);
         $("#sound-on .animbar:nth-child(3n + 1)").animate({height: '40px'}, 150);
-        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '90px'}, 150);
+        $("#sound-on .animbar:nth-child(3n + 2)").animate({height: '55px'}, 150);
       }
 
       function stop() {

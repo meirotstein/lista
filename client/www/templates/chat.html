@@ -8,19 +8,19 @@
 
   <ion-content scroll="true" class="has-header has-footer chat-content" style="padding: 10px;">
 
+    <div class="eqbox-container">
+      <div class="eqbox">
+        <div eqanim enable=true></div>
+      </div>
+    </div>
+
     <ol class="messages">
       <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
-        <div class="message-title">
-          <div ng-if="$root.currentUser !== message.username">
-            <span class="username"><span class="dot">.</span> {{message.username}} <span class="time">{{getTime(message.time)}}</span></span>
-          </div>
-          <div ng-if="$root.currentUser === message.username">
-            <span class="username-me"><span class="time">{{getTime(message.time)}}</span> {{message.username}} <span class="dot-me">.</span></span>
-          </div>
-        </div>
         <div class="bubble-container">
-            <div class="bubble-pin" ng-class="{'bubble-pin-me' : $root.currentUser === message.username}"></div>
-            <div class="bubble" ng-class="{'bubble-me' : $root.currentUser === message.username}">
+            <div class="bubble-pin">
+              <img ng-src="{{message.avatar}}">
+            </div>
+            <div class="bubble">
               <p ng-bind="message.content" ng-class="{'userMsg': message.username == username}"></p>
             </div>
         </div>

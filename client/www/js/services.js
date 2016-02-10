@@ -28,7 +28,8 @@ angular.module('socket-chat.services', [])
                 var message = {
                     username: username,
                     content: msg,
-                    place: placeId
+                    place: placeId,
+                    avatar: this.getAvatar()
                 };
                 socket.emit('chat message', message);
             },
@@ -51,6 +52,9 @@ angular.module('socket-chat.services', [])
             },
             stopTyping: function () {
                 socket.emit('stop typing');
+            },
+            getAvatar: function(user) {
+                return "img/Avatar.png"; //to be manipulated
             }
         };
 
@@ -60,6 +64,7 @@ angular.module('socket-chat.services', [])
 
         socket.on('chat message', function (msg) {
             $rootScope.$apply(function () {
+                msg.avatar = functions.getAvatar();
                 if (placeId === msg.place) {
                     if(msg.content === "___startTrivia___") {
                         $location.path('/cards');

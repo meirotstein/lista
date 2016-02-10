@@ -208,7 +208,7 @@ angular.module('starter.controllers', [])
             var recognizing = false;
             var recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
-            recognition.interimResults = true;
+            recognition.interimResults = false;
             recognition.onstart = function() {
                 recognizing = true;
                 showInfo('info_speak_now');
@@ -234,6 +234,7 @@ angular.module('starter.controllers', [])
                     }
                     ignore_onend = true;
                 }
+                recognition.stop();
             };
 
             var final_transcript = '';
@@ -258,6 +259,7 @@ angular.module('starter.controllers', [])
                 //}
 
                 console.log("ended: " + final_transcript);
+                Chat.sendMessage(final_transcript);
                 recognition.start();
                 final_transcript = "";
             };

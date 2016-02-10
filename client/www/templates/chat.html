@@ -25,7 +25,7 @@
               <img ng-src="{{message.avatar}}">
             </div>
             <div class="bubble">
-              <p ng-bind="message.content" ng-class="{'userMsg': message.username == username}"></p>
+              <p ng-bind-html="message.content" ng-class="{'userMsg': message.username == username}"></p>
             </div>
           </div>
         </li>

@@ -1,6 +1,6 @@
-angular.module('socket-chat.services', [])
+angular.module('socket-chat.services', ['ngSanitize'])
 
-    .factory('Chat', function ($rootScope, $http, $ionicScrollDelegate, Notification , $location) {
+    .factory('Chat', function ($rootScope, $sce, $http, $ionicScrollDelegate, Notification , $location) {
         var socket = $rootScope.socket = io();
         var username;
         var placeId;
@@ -75,6 +75,7 @@ angular.module('socket-chat.services', [])
                     if(msg.content === "___startTrivia___") {
                         $location.path('/cards');
                     }else {
+                        msg.content = $sce.trustAsHtml(msg.content);
                         msg.time = new Date();
                         if(messages.current) {
                             messages.unshift(messages.current);

@@ -1,5 +1,5 @@
 angular.module('starter.controllers', [])
-    .controller('CardsCtrl', function ($scope, $location, $interval, $location, TDCardDelegate, Game, $rootScope) {
+    .controller('CardsCtrl', function ($scope, $interval, $location, TDCardDelegate, Game, $rootScope) {
 
         var cardTypes = [
             {key: 1, text: 'All of the following were Beatles: Lennon, Ringo, Paul, Hans Solo ', answer: 0},
@@ -289,8 +289,6 @@ angular.module('starter.controllers', [])
 
             recognition.lang = "en-GB";
             recognition.start();
-
-
         }
 
         $scope.messages = Chat.getMessages();
@@ -299,12 +297,11 @@ angular.module('starter.controllers', [])
 
         $ionicScrollDelegate.scrollBottom(true);
 
-        $scope.$watch('newMessage', function (newValue, oldValue) {
+        $scope.$watch('newMessage', function (newValue) {
             if (typeof newValue != 'undefined') {
                 if (newValue != '') {
                     Chat.typing();
-                }
-                else {
+                } else {
                     Chat.stopTyping();
                 }
             }

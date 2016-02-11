@@ -325,17 +325,17 @@ angular.module('starter.controllers', [])
         $scope.activeIndex = 0;
         $scope.users = [
             {
-                title: 'Eitan',
+                title: 'Mike',
                 active: false,
                 avatar: 'img/Avatar0.png',
             },
             {
-                title: 'Meir',
+                title: 'Jake',
                 active: false,
                 avatar: 'img/Avatar1.png'
             },
             {
-                title: 'Clara',
+                title: 'Sandra',
                 active: false,
                 avatar: 'img/Avatar2.png'
             }

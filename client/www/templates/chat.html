@@ -28,7 +28,7 @@
         <li ng-class="{'userMsg': message.username == username}" ng-repeat="message in messages">
           <div class="bubble-container">
             <div class="bubble-pin">
-              <img ng-src="{{getAvatarForCurrentUser()}}">
+              <img ng-src="{{getAvatarForUser(message.username)}}">
             </div>
             <div class="bubble">
               <p ng-bind-html="message.content" ng-class="{'userMsg': message.username == username}"></p>

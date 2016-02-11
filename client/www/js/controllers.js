@@ -350,9 +350,9 @@ angular.module('starter.controllers', [])
 
         };
 
-        $scope.getAvatarForCurrentUser = function() {
-            if($scope.messages.current) {
-                var user = $scope.users.filter(function(u){return u.title === $scope.messages.current.username;});
+        $scope.getAvatarForUser = function(username) {
+            if(username) {
+                var user = $scope.users.filter(function(u){return u.title === username;});
                 if(user.length) {
                     return user[0].avatar;
                 }

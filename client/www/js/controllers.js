@@ -287,7 +287,7 @@ angular.module('starter.controllers', [])
                 recognition.stop();
             };
 
-            recognition.lang = "en-GB";
+            recognition.lang = "en-US";
             recognition.start();
         }
 

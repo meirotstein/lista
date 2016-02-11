@@ -15,8 +15,7 @@
   <ion-content scroll="false" class="has-header custom-header has-footer chat-content" style="padding: 10px;">
 
     <div class="eqbox-container">
-      <div class="current-message">
-        {{messages.current.content}}
+      <div ng-bind-html="messages.current.content" class="current-message">
       </div>
       <div class="eqbox">
         <div eqanim enable=true></div>
